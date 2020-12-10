@@ -3,3 +3,35 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.header{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.main-content{
+    display: flex;
+
+}
+
+.statistic-table, 
+.statistic-map, 
+.statistic-graphs{
+    border: 1px solid grey;
+}
+
+.statistic-table{
+    width: 20%;
+}
+
+
+.statistic-map{
+    width: 50%;
+}
+
+.statistic-graphs{
+    width: 30%;
+}
+
