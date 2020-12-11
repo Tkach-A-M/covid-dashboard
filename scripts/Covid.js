@@ -33,13 +33,13 @@ class CovidClass {
   }
   async getRecoveredLastDay(country) {
     return await this.getInfoCountry(country).then (data => {
-      data[data.length-1].Recovered - data[data.length-2].Recovered
+      return data[data.length-1].Recovered - data[data.length-2].Recovered
       // информация о выздоровивших людях за последний день (в стране )
     })
   }
   async getDeathsLastDay(country) {
     return await this.getInfoCountry(country).then (data => {
-     console.log( data[data.length-1].Deaths - data[data.length-2].Deaths)
+     return data[data.length-1].Deaths - data[data.length-2].Deaths
       // информация о умерших людях за последний день (в стране )
     })
   }
