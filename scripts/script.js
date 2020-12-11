@@ -1,3 +1,6 @@
+// Api
+const CountryInfo = new CountryClass();
+const CovidInfo = new CovidClass();
 //map
 google.charts.load('current', {
     'packages':['geochart'],
@@ -34,3 +37,9 @@ window.onresize = resize;
 function resize(){
     drawRegionsMap();
 }
+// test Api
+CountryInfo.getPopulation('Belarus').then (data => {
+    //  console.log(data)
+  })
+CovidInfo.getSummary().then (data => console.log(data))
+CountryInfo.getCountries().then (data => console.log(data))
