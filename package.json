@@ -1,0 +1,34 @@
+{
+  "name": "covid-dashboard",
+  "version": "1.0.0",
+  "description": "information app about COVID-19",
+  "main": "scripts/index.js",
+  "scripts": {
+    "lint": "eslint ./scripts",
+    "lint:fix": "eslint ./scripts --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tkach-A-M/covid-dashboard.git"
+  },
+  "author": "Tkach, Kazachenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tkach-A-M/covid-dashboard/issues"
+  },
+  "homepage": "https://github.com/Tkach-A-M/covid-dashboard#readme",
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.2.0",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
+}
