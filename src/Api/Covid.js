@@ -51,3 +51,5 @@ class CovidClass {
     return await this.getInfoCountry(country).then((data) => data[data.length - 1].Active - data[data.length - 2].Active);
   }
 }
+
+export const Covid = new CovidClass()

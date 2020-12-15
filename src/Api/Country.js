@@ -35,3 +35,5 @@ class CountryClass {
     return await this.getData('AllCountry');
   }
 }
+
+export const Country = new CountryClass()
