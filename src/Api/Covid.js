@@ -1,3 +1,6 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable max-len */
+/* eslint-disable no-return-await */
 class CovidClass {
   constructor() {
     this.summary = 'summary';
@@ -14,6 +17,7 @@ class CovidClass {
     const result = await fetch(str);
 
     if (!result.ok) {
+      // eslint-disable-next-line no-undef
       throw new Error(`No data was found at ${url}, received ${result.status}`);
     }
 
@@ -52,4 +56,4 @@ class CovidClass {
   }
 }
 
-export const Covid = new CovidClass()
+export const Covid = new CovidClass();

@@ -1,7 +1,8 @@
+/* eslint-disable no-shadow */
+/* eslint-disable no-undef */
+/* eslint-disable no-return-await */
+/* eslint-disable class-methods-use-this */
 class CountryClass {
-  constructor() {
-  }
-
   async getData(category, data) {
     let str = 'https://restcountries.eu/rest/v2';
 
@@ -36,4 +37,5 @@ class CountryClass {
   }
 }
 
-export const Country = new CountryClass()
+// eslint-disable-next-line import/prefer-default-export
+export const Country = new CountryClass();
