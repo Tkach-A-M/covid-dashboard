@@ -13,7 +13,6 @@ class CovidClass {
     if (id === this.country) {
       str += `/${country}`;
     }
-
     const result = await fetch(str);
 
     if (!result.ok) {
@@ -54,6 +53,8 @@ class CovidClass {
   async getActiveLastDay(country) {
     return await this.getInfoCountry(country).then((data) => data[data.length - 1].Active - data[data.length - 2].Active);
   }
+
+  // https://api.covid19api.com/world?from=2020-03-01T00:00:00Z&to=2020-11-16T00:00:00Z
 }
 
 export const Covid = new CovidClass();

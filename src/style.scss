@@ -15,7 +15,7 @@
     display: flex;
 
 }
-
+.statistic-all,
 .statistic-table, 
 .statistic-map, 
 .statistic-graphs{
@@ -41,7 +41,44 @@
     left: 0;
 }
 
+
+.info-right,
 .statistic-graphs{
-    width: 30%;
+    width: 300px;
+    height:200px;
+}
+
+
+.statistic-all {
+    width: 300px;
+    height:250px;
+
+    .select-statistic {
+     width: 100%;
+     text-align-last: center;
+     height:30px;
+    }
+
+    &-h2 {
+        font-size:30px;
+        text-align: center;
+        margin-top:10px;
+    }
+
+    &-h3 {  
+        margin-left: auto;
+        margin-right: auto;
+        width: calc(100% - 40px);
+        margin-top:20px;
+        font-size:25px;
+        color: #cc2c10;
+
+        span {
+            color: black;
+        }
+    }
+
+
+
 }
 
