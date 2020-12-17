@@ -9,7 +9,7 @@ import './style.scss';
 import { Country, Covid } from './Api';
 import { Storage } from './Storage';
 import { Model } from './Model';
-import { View } from './View';
+import { View, chart } from './View';
 // eslint-disable-next-line camelcase
 const select_statistic = document.querySelector('.select-statistic');
 
@@ -23,8 +23,10 @@ L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=2R2VDK8cUyk
 window.onload = function () {
   Storage.init();
   View.init();
+  Model.graphResults();
 };
-Covid.getSummary().then((data) => console.log(data));
 select_statistic.addEventListener('change', () => {
   Model.statisticResult();
+  Model.graphResults();
 });
+Covid.getStatistic().then((data) => console.log(data.map((e) => e.NewConfirmed)));

@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable max-len */
 /* eslint-disable no-return-await */
@@ -6,12 +7,17 @@ class CovidClass {
     this.summary = 'summary';
     this.country = 'country';
     this.countries = 'countries';
+    this.world = 'world';
+    this.date = new Date();
   }
 
   async getData(id, country) {
     let str = `https://api.covid19api.com/${id}`;
     if (id === this.country) {
       str += `/${country}`;
+    }
+    if (id === this.world) {
+      str += `?from=2020-03-01T00:00:00Z&to=${this.date.getFullYear()}-${this.date.getMonth() + 1}-${this.date.getDate()}T00:00:00Z`;
     }
     const result = await fetch(str);
 
@@ -54,6 +60,9 @@ class CovidClass {
     return await this.getInfoCountry(country).then((data) => data[data.length - 1].Active - data[data.length - 2].Active);
   }
 
+  async getStatistic() {
+    return await this.getData(this.world);
+  }
   // https://api.covid19api.com/world?from=2020-03-01T00:00:00Z&to=2020-11-16T00:00:00Z
 }
 

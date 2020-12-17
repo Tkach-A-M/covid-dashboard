@@ -1,22 +1,53 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-return-assign */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-const ctx = document.querySelector('.statistic-graphs').getContext('2d');
-export const chart = new Chart(ctx, {
-  // The type of chart we want to create
-  type: 'line',
+import { Covid } from '../Api/Covid';
 
-  // The data for our dataset
-  data: {
-    labels: ['01.03', '01.04', '01.05', '01.06', '01.07', '01.08', '01.09', '01.10', '01.11', '01.12'],
-    datasets: [{
-      label: 'My First dataset',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45, 17, 5, 26, 17, 25],
-    }],
-  },
+export function chart(data, arr, lab) {
+  document.querySelector('.canvas-graphs').innerHTML = '';
+  document.querySelector('.canvas-graphs').innerHTML = '<canvas class="statistic-graphs"></canvas>';
+  const ctx = document.querySelector('.statistic-graphs').getContext('2d');
+  return new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
 
-  // Configuration options go here
-  options: {},
-});
+    // The data for our dataset
+    data: {
+      labels: Array(data.length).fill(0, 0).map((e, i) => e = `${new Date(2020, 3, 13 + i).getDate()}-${new Date(2020, 3, 13 + i).getMonth() + 1}-${new Date(2020, 3, 13 + i).getFullYear()}`),
+      datasets: [{
+        pointRadius: 0,
+        label: lab,
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: '#cc2c10',
+        data: arr,
+      }],
+    },
+
+    // Configuration options go here
+    options: {},
+  });
+}
+Chart.defaults.global.defaultFontSize = 10;
+// Covid.getStatistic().then((data) => {
+//   const ctx = document.querySelector('.statistic-graphs').getContext('2d');
+//   const chart = new Chart(ctx, {
+//   // The type of chart we want to create
+//     type: 'line',
+
+//     // The data for our dataset
+//     data: {
+//       labels: labelsArr,
+//       datasets: [{
+//         label: 'My First dataset',
+//         backgroundColor: 'rgb(255, 99, 132)',
+//         borderColor: 'rgb(255, 99, 132)',
+//         data: [0, 10, 5, 2, 20, 30, 45, 17, 5, 26, 17, 25],
+//       }],
+//     },
+
+//     // Configuration options go here
+//     options: {},
+//   });
+// });
