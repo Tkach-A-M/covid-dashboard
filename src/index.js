@@ -29,4 +29,5 @@ select_statistic.addEventListener('change', () => {
   Model.statisticResult();
   Model.graphResults();
 });
+function countryData(name) {}
 Covid.getStatistic().then((data) => console.log(data.map((e) => e.NewConfirmed)));

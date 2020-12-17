@@ -30,24 +30,3 @@ export function chart(data, arr, lab) {
   });
 }
 Chart.defaults.global.defaultFontSize = 10;
-// Covid.getStatistic().then((data) => {
-//   const ctx = document.querySelector('.statistic-graphs').getContext('2d');
-//   const chart = new Chart(ctx, {
-//   // The type of chart we want to create
-//     type: 'line',
-
-//     // The data for our dataset
-//     data: {
-//       labels: labelsArr,
-//       datasets: [{
-//         label: 'My First dataset',
-//         backgroundColor: 'rgb(255, 99, 132)',
-//         borderColor: 'rgb(255, 99, 132)',
-//         data: [0, 10, 5, 2, 20, 30, 45, 17, 5, 26, 17, 25],
-//       }],
-//     },
-
-//     // Configuration options go here
-//     options: {},
-//   });
-// });
