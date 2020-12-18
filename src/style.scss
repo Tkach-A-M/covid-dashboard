@@ -4,8 +4,11 @@
     box-sizing: border-box;
 }
 
-.header{
+body{
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.header{
     font-size: 1.5rem;
     text-align: center;
     margin-bottom: 5px;
@@ -20,10 +23,81 @@
 .statistic-map, 
 .statistic-graphs{
     border: 1px solid grey;
+    height: 760px;
 }
 
 .statistic-table{
     width: 20%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.total-cases,
+.cases-table,
+.last-update{
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: darkgray;
+}
+
+.total-cases_header{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.total-cases_count{
+    text-align: center;
+    font-size: 3em;
+    color: red;
+}
+
+.cases-table{
+    height: 585px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.search-field{
+    display: flex;
+    justify-content: center;
+}
+
+.search-input{
+    height: 32px;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    outline: none;
+    padding-left: 5px;
+}
+
+.search-button{
+    height: 32px;
+    width: 50px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.cases-table_row{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    border-bottom: 4px solid #E6AA3A;
+}
+
+.country-name{
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+
+.last-update{
+    padding: 10px;
+    text-align: center;
 }
 
 
@@ -33,7 +107,7 @@
 }
 
 #map{
-    height: 700px;
+    height: 760px;
     position: absolute;
     top: 0;
     right: 0;
