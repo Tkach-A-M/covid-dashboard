@@ -36,6 +36,7 @@ class CovidClass {
 
   // информация для построения граффика для страны:
   // информация о covid в стране с 1 марта по сегодняшний день (по дням)
+
   async getInfoCountry(country) {
     return await this.getData(this.country, country);
   }

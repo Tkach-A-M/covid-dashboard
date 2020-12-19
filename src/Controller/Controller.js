@@ -23,7 +23,7 @@ class ControllerClass {
 
   controllerGraph() {
     this.graph_controller.addEventListener('click', (elem) => {
-      Model.graphController(elem);
+      Model.graphController(elem, 78270);
     });
   }
 }

@@ -26,4 +26,4 @@ window.onload = function () {
   Controller.init();
   Model.graphResults();
 };
-// Covid.getStatistic().then((data) => console.log(data.map((e) => e.NewConfirmed)));
+Covid.getTest().then((data) => console.log(data.Date));

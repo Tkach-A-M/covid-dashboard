@@ -37,56 +37,56 @@ class ModelClass {
     });
   }
 
-  graphController(elem) {
+  graphController(elem, people) {
     const checkBar = document.querySelectorAll('[data-graph]');
     Covid.getStatistic().then((data) => {
       checkBar.forEach((e) => (e.classList.contains('graph-controller-active') ? e.classList.remove('graph-controller-active') : false));
       elem.target.classList.add('graph-controller-active');
       if (elem.target.getAttribute('data-graph') === 'confirmed') {
-        this.graphConfirmed(data);
+        this.graphConfirmed(data, people);
       } else if (elem.target.getAttribute('data-graph') === 'deaths') {
-        this.graphDeaths(data);
+        this.graphDeaths(data, people);
       } else if (elem.target.getAttribute('data-graph') === 'recovered') {
-        this.graphRecovered(data);
+        this.graphRecovered(data, people);
       }
     });
   }
 
-  graphConfirmed(data) {
+  graphConfirmed(data, people) {
     if (this.select_statistic.value === 'All Time') {
       chart(data, data.map((e) => e.TotalConfirmed).sort((a, b) => a - b), 'Confirmed');
     } else if (this.select_statistic.value === 'Last Day') {
       chart(data, data.map((e) => e.NewConfirmed), 'Confirmed');
     } else if (this.select_statistic.value === 'All Time(100t.p)') {
-      chart(data, data.map((e) => (e.TotalConfirmed / 78270).toFixed(7)).sort((a, b) => a - b), 'Confirmed');
+      chart(data, data.map((e) => (e.TotalConfirmed / people).toFixed(7)).sort((a, b) => a - b), 'Confirmed');
     } else if (this.select_statistic.value === 'Last Day(100t.p)') {
-      chart(data, data.map((e) => (e.TotalConfirmed / 78270).toFixed(7)), 'Confirmed');
+      chart(data, data.map((e) => (e.TotalConfirmed / people).toFixed(7)), 'Confirmed');
     }
   }
 
-  graphDeaths(data) {
+  graphDeaths(data, people) {
     if (this.select_statistic.value === 'All Time') {
       chart(data, data.map((e) => e.TotalDeaths).sort((a, b) => a - b), 'Deaths');
     } else if (this.select_statistic.value === 'Last Day') {
       chart(data, data.map((e) => e.NewDeaths), 'Deaths');
     } else if (this.select_statistic.value === 'All Time(100t.p)') {
-      chart(data, data.map((e) => (e.TotalDeaths / 78270).toFixed(7)).sort((a, b) => a - b), 'Deaths');
+      chart(data, data.map((e) => (e.TotalDeaths / people).toFixed(7)).sort((a, b) => a - b), 'Deaths');
     } else if (this.select_statistic.value === 'Last Day(100t.p)') {
-      chart(data, data.map((e) => (e.TotalDeaths / 78270).toFixed(7)), 'Deaths');
+      chart(data, data.map((e) => (e.TotalDeaths / people).toFixed(7)), 'Deaths');
     }
   }
 
-  graphRecovered(data) {
+  graphRecovered(data, people) {
     if (this.select_statistic.value === 'All Time') {
       chart(data, data.map((e) => e.TotalRecovered).sort((a, b) => a - b), 'Recovered');
     } else if (this.select_statistic.value === 'Last Day') {
       chart(data, data.map((e) => e.NewRecovered), 'Recovered');
     } else if (this.select_statistic.value === 'All Time(100t.p)') {
-      chart(data, data.map((e) => (e.TotalRecovered / 78270).toFixed(7)).sort((a, b) => a - b), 'Recovered');
+      chart(data, data.map((e) => (e.TotalRecovered / people).toFixed(7)).sort((a, b) => a - b), 'Recovered');
     } else if (this.select_statistic.value === 'Last Day(100t.p)') {
-      chart(data, data.map((e) => (e.TotalRecovered / 78270).toFixed(7)), 'Recovered');
+      chart(data, data.map((e) => (e.TotalRecovered / people).toFixed(7)), 'Recovered');
     }
   }
 }
-
+// 78270
 export const Model = new ModelClass();

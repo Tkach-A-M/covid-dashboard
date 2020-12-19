@@ -15,7 +15,7 @@ class StorageClass {
 
   init() {
     // eslint-disable-next-line no-console
-    this.covidInfo.then(data => console.log(data));
+    this.covidInfo.then(data => data);
   }
 
   getCountryData(name) {
