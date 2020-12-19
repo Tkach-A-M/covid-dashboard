@@ -25,7 +25,6 @@ window.onload = function () {
   Storage.init();
   View.init();
   Controller.init();
-  Model.graphResults();
+  Model.init();
   MyMap.showAllMap();
 };
-Covid.getTest().then((data) => console.log(data.Date));

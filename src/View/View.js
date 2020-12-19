@@ -14,7 +14,6 @@ class ViewClass {
 
   init() {
     Covid.getSummary().then((data) => {
-      this.viewStatisticAll(data.TotalConfirmed, data.TotalDeaths, data.TotalRecovered);
       this.viewTotalCases(data.TotalConfirmed);
     });
     Covid.getUpdateDate().then((data) => this.viewLastUpdateDate(data.Date));
@@ -26,16 +25,13 @@ class ViewClass {
     this.statistic_recovered.innerHTML = recovered;
   }
 
-  viewTotalCases(confirmed){
+  viewTotalCases(confirmed) {
     this.total_cases.innerHTML = confirmed;
   }
 
-  viewLastUpdateDate(date){
+  viewLastUpdateDate(date) {
     this.last_update_date.innerHTML = date.slice(0, 10);
   }
-
-  
-
 }
 
 export const View = new ViewClass();

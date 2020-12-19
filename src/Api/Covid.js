@@ -57,8 +57,8 @@ class CovidClass {
   }
 
   // информация о заболевших людях за последний день (в стране )
-  async getActiveLastDay(country) {
-    return await this.getInfoCountry(country).then((data) => data[data.length - 1].Active - data[data.length - 2].Active);
+  async getConfirmedLastDay(country) {
+    return await this.getInfoCountry(country).then((data) => data[data.length - 1].Confirmed - data[data.length - 2].Confirmed);
   }
 
   // дата последнего обновления
