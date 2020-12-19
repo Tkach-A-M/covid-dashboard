@@ -61,6 +61,11 @@ class CovidClass {
     return await this.getInfoCountry(country).then((data) => data[data.length - 1].Active - data[data.length - 2].Active);
   }
 
+  // дата последнего обновления
+  async getUpdateDate() {
+    return await this.getData(this.summary).then((data) => data);
+  }
+
   async getStatistic() {
     return await this.getData(this.world);
   }
