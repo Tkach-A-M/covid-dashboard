@@ -21,17 +21,6 @@ import { Controller } from './Controller';
 //   attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
 // }).addTo(map);
 
-let tabCovidArray = [];
-Covid.getCountriesData().then((data) => tabCovidArray = data);
-
-let a = setTimeout(() => {
-  let tabCountriesArray = [];
-  Country.getCountries().then((data) => tabCountriesArray = data.flag); 
-  return tabCountriesArray;  
-}, 2000);
-
-
-
 
 window.onload = function () {
   Storage.init();
@@ -39,7 +28,5 @@ window.onload = function () {
   Controller.init();
   Model.init();
   MyMap.showAllMap();
-  console.log(tabCovidArray);
-  console.log(a);
   console.log(Country.getFlag('Yemen'));
 };
