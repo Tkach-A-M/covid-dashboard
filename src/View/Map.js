@@ -22,11 +22,17 @@ class MapClass {
   }
 
   showAllMap(){
-    const map = L.map('map').setView([33.0, 65.0], 5);
+    const map = L.map('map').setView([21.5679387815455, -22.68735222765881], 2);
+    const tileUrl = 'https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=2R2VDK8cUykY5Z0ninZy';
+    const attribution = '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
 
-    L.tileLayer('https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=2R2VDK8cUykY5Z0ninZy', {
-      attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-    }).addTo(map);
+    L.tileLayer( tileUrl , { attribution }).addTo(map);
+
+    const legend = L.control( {position: 'bottomright'} );
+    legend.onAdd = function(map){
+      let div = L.DomUtil.create('div', 'legend');
+    }
+
   }
 
   showCountry() {

@@ -26,6 +26,9 @@ class CountryClass {
     return await this.getData('Country', data).then((data) => data[0].flag);
   }
 
+  // получить название страны
+  
+
   // получить насенение по названию страны
   async getPopulation(data) {
     return await this.getData('Country', data).then((data) => data[0].population);

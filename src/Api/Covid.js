@@ -26,7 +26,7 @@ class CovidClass {
       throw new Error(`No data was found at ${url}, received ${result.status}`);
     }
 
-    return await result.json();
+    return result.json();
   }
 
   // получить информацию о смертях/выздоровивших в мире
@@ -60,6 +60,12 @@ class CovidClass {
   async getConfirmedLastDay(country) {
     return await this.getInfoCountry(country).then((data) => data[data.length - 1].Confirmed - data[data.length - 2].Confirmed);
   }
+
+  // получить данные о странах
+  async getCountriesData(){
+    return await this.getData(this.summary).then((data) => data.Countries);
+  }
+
 
   // дата последнего обновления
   async getUpdateDate() {

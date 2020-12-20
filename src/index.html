@@ -21,33 +21,29 @@
             
             <div class="cases-table">
                 <div class="search-field">
-                    <input type="text" id="search-input" class="search-input" placeholder="Search">
-                    <button class="search-button">
-                        <img src="/src/images/search-icon.svg" alt="search" height="20px">
-                    </button>
+                    <input type="text" class="search-input" placeholder="Search">
+                    
                 </div>
                 <div class="cases-table_data">
-                    <div class="cases-table_row">
-                        <div class="country-flag">
-                            <img height="32px" src="https://restcountries.eu/data/usa.svg" alt="us-flag">
-                        </div>
-                        <div class="country-name">
-                            US
-                        </div>
-                        <div class="country-cases">
-                            17 149 231
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
 
             <div class="last-update">
-                <p class="last-update-format">Last Updated at (M/D/YYYY)</p>
+                <p class="last-update-format">Last Updated at (D/M/YYYY)</p>
                 <p class="last-update-date"></p>
             </div>
 
         </div>
         <div class="statistic-map">
+            <div class="map-tabs">
+                <div data-map="map-cases-total">Total cases</div>
+                <div data-map="map-death-total">Total death</div>
+                <div data-map="map-recovered-total">Total recovered</div>
+                <div data-map="map-cases-last-day">Cases last day</div>
+                <div data-map="map-death-last-day">Death last day</div>
+                <div data-map="map-recovered-last-day">Recovered last day</div>
+            </div>
             <div id="map"></div>
         </div>
 
