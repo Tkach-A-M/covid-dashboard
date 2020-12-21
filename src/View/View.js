@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-plusplus */
+/* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable max-len */
 import { Covid, Country } from '../Api';
@@ -16,7 +19,6 @@ class ViewClass {
     // this.country_name = document.querySelector('.country-name');
     this.country_flag_image = document.querySelector('.country-flag-image');
     // this.country_cases = document.querySelector('.country-cases');
- 
   }
 
   init() {
@@ -26,8 +28,6 @@ class ViewClass {
     // Covid.getUpdateDate().then((data) => this.viewLastUpdateDate(data.Countries));
     Covid.getUpdateDate().then((data) => this.viewLastUpdateDate(data.Date));
     Covid.getCountriesData().then((data) => this.viewTableData(data));
-    Country.getFlag()
-    // Country.getFlag(data).then((data) => this.viewCountryFlag(data));
   }
 
   viewStatisticAll(confirmed, death, recovered) {
@@ -40,12 +40,11 @@ class ViewClass {
     this.total_cases.innerHTML = confirmed;
   }
 
-  viewTableData(data){
-    // data.TotalConfirmed.sort((a, b) => a - b)
-    for(let i = 0; i < data.length; i++){
+  viewTableData(data) {
+  // data.TotalConfirmed.sort((a, b) => a - b)
+    for (let i = 0; i < data.length; i++) {
       const cases_table_row = document.createElement('div');
       cases_table_row.classList.add('cases-table_row');
-      
       // const country_flag = document.createElement('div');
       // country_flag.classList.add('country-flag');
 
@@ -69,10 +68,8 @@ class ViewClass {
       cases_table_row.innerText = `${data[i].Country} ${data[i].TotalConfirmed}`;
 
       this.cases_table_data.appendChild(cases_table_row);
-    }    
+    }
   }
-
-  
 
   viewLastUpdateDate(date) {
     this.last_update_date.innerHTML = date.slice(0, 10).split('-').reverse().join('.');

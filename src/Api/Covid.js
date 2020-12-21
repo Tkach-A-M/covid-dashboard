@@ -62,10 +62,9 @@ class CovidClass {
   }
 
   // получить данные о странах
-  async getCountriesData(){
+  async getCountriesData() {
     return await this.getData(this.summary).then((data) => data.Countries);
   }
-
 
   // дата последнего обновления
   async getUpdateDate() {

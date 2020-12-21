@@ -27,7 +27,6 @@ class CountryClass {
   }
 
   // получить название страны
-  
 
   // получить насенение по названию страны
   async getPopulation(data) {

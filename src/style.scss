@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    z-index: 1;
 }
 
 body{
@@ -163,7 +164,10 @@ body{
     }
 }
 
-.info-right,
+.info-right {
+  width: 300px;
+  height:470px;
+}
 .statistic-graphs{
     width: 300px;
     height:200px;
@@ -172,7 +176,7 @@ body{
 
 .statistic-all {
     width: 300px;
-    height:250px;
+    height:320px;
 
     .select-statistic {
      width: 100%;
@@ -219,4 +223,364 @@ body{
         background-color: antiquewhite;
     }
 }
-
+// keyboard
+body {
+  position: relative;
+}
+.keyboard {
+    width:1275px;
+    height: 260px;
+    transition: 1s;
+    background-color: #292929;
+    position: fixed;
+    top:calc(100vh);
+    left: calc(50vw - 637.5px);
+    display: flex;
+    flex-wrap: wrap;
+    padding:2px;
+    font-size: 18px;
+    color: #b0b2bf;
+    z-index: 100;
+  }
+  .keyA{
+    color:#ebedfa
+  }
+  span {
+    width:20%;
+    height:24px;
+    display: block;
+  }
+  span.bot {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  span.top {
+    margin-left:5px;
+  }
+  
+  .key {
+    height:48px;
+    width: 78px;
+    background-color: #696969;
+    margin: 2px;
+    z-index: 100500;
+  }
+  .key61 .top {
+    margin-left: auto;
+    margin-right: auto;
+    color:#ebedfa
+  }
+  .notkey {
+    height:48px;
+    width: 78px;
+    margin: 2px;
+    background-color: #696969;
+  }
+  .key15,.key16 {
+    width: 118px;
+  }
+  .key31,.key56 {
+    width: 162px;
+  }
+  .key43,.key44 {
+    width: 198px;
+  }
+  .key61 {
+    width: 444px;
+  }
+  .key67 {
+    width:80px;
+  }
+  .key31 .bot,.key44 .bot {
+    width: 10px;
+    height: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color:#ff0000;
+    border-radius: 50%;
+  }
+  .caps-active {
+    background-color:#00ff00!important;
+  }
+  .shift-active {
+    background-color:#00ff00!important;
+  }
+  .keyEvent {
+    background-color: #000;
+  }
+  @media screen and (max-width: 1300px){
+    .keyboard{
+      width:835px;
+      left: calc(50vw - 417.5px);
+    }
+    .key {
+      order:0;
+      width:65px;
+    }
+    .key15,.key16 {
+      width: 65px;
+    }
+    .key31,.key56 {
+      width: 65px;
+    }
+    .key43,.key44 {
+      width: 65px;
+    }
+    .key61 {
+      width: 203px;
+    }
+    .key67 {
+      width:80px;
+    }
+    .notkey{
+      display: none;
+    }
+    .key2 {
+      order: 2;
+    }
+    .key3 {
+      order: 0;
+    }
+    .key4 {
+      order: 0;
+    }
+    .key5 {
+      order: 0;
+    }
+    .key6 {
+      order: 0;
+    }
+    .key7 {
+      order: 0;
+    }
+    .key8 {
+      order: 0;
+    }
+    .key9 {
+      order: 0;
+    }
+    .key10 {
+      order: 0;
+    }
+    .key11 {
+      order: 0;
+    }
+    .key12 {
+      order: 0;
+    }
+    .key13{
+      order: 12;
+    }
+    .key14 {
+      order: 1;
+    }
+    .key15 {
+      order: 1;
+    }
+    .key17 {
+      order: 2;
+    }
+    .key18 {
+      order: 2;
+    }
+    .key19 {
+      order: 2;
+    }
+    .key20 {
+      order: 2;
+    }
+    .key21 {
+      order: 2;
+    }
+    .key22 {
+      order: 3;
+    }
+    .key23 {
+      order: 3;
+    }
+    .key24 {
+      order: 3;
+    }
+    .key25 {
+      order: 3;
+    }
+    .key26 {
+      order: 3;
+    }
+    .key27 {
+      order: 3;
+    }
+    .key28 {
+      order: 10;
+    }
+    .key29 {
+      order: 11;
+    }
+    .key31 {
+      order: 3;
+    }
+    .key32 {
+      order: 7;
+    }
+    .key33 {
+      order: 7;
+    }
+    .key34 {
+      order: 7;
+    }
+    .key35 {
+      order: 7;
+    }
+    .key36 {
+      order: 7;
+    }
+    .key37 {
+      order: 9;
+    }
+    .key38 {
+      order: 9;
+    }
+    .key39 {
+      order: 9;
+    }
+    .key40 {
+      order: 9;
+    }
+    .key41 {
+      order: 9;
+    }
+    .key42 {
+      order: 9;
+    }
+    .key43 {
+      order: 14;
+    }
+    .key44 {
+      order: 9;
+    }
+    .key45 {
+      order: 9;
+    }
+    .key46 {
+      order: 9;
+    }
+    .key47 {
+      order: 9;
+    }
+    .key48 {
+      order: 9;
+    }
+    .key49 {
+      order: 9;
+    }
+    .key50 {
+      order: 9;
+    }
+    .key51 {
+      order: 9;
+    }
+    .key52 {
+      order: 9;
+    }
+    .key53 {
+      order: 9;
+    }
+    .key54 {
+      order: 13;
+    }
+    .key55 {
+      order: 9;
+    }
+    .key56 {
+      order: 9;
+      display: none;
+    }
+    .key59 {
+      order: 12;
+    }
+    .key60 {
+      order: 10;
+    }
+    .key61 {
+      order: 12;
+    }
+    .key64 {
+      order: 14;
+    }
+    .key65 {
+      order: 14;
+    }
+    .key66 {
+      order: 14;
+    }
+  }
+  @media screen and (max-width: 830px){
+    .keyboard{
+      width:680px;
+      left: calc(50vw - 340px);
+    }
+    .key {
+      width:52px;
+    }
+    .key15,.key16 {
+      width: 52px;
+    }
+    .key31,.key56 {
+      width: 52px;
+    }
+    .key43,.key44 {
+      width: 52px;
+    }
+    .key61 {
+      width: 163px;
+    }
+  }
+  @media screen and (max-width: 680px){
+    .keyboard{
+      width:522px;
+      font-size: 14px;
+      left: calc(50vw - 261px);
+    }
+    .key {
+      width:39px;
+    }
+    .key15,.key16 {
+      width: 39px;
+    }
+    .key31,.key56 {
+      width: 39px;
+    }
+    .key43,.key44 {
+      width: 39px;
+    }
+    .key61 {
+      width: 125px;
+    }
+    
+  }
+  @media screen and (max-width: 530px){
+    .keyboard{
+      width:474px;
+      left: calc(50vw - 237px);
+      font-size: 12px;
+    }
+    .key {
+      width:35px;
+    }
+    .key15,.key16 {
+      width: 35px;
+      font-size:8px;
+    }
+    .key31,.key56 {
+      width: 35px;
+      font-size: 8px;
+    }
+    .key43,.key44 {
+      width: 35px;
+      font-size: 8px;
+    }
+    .key61 {
+      width: 114px;
+    }
+    
+  }

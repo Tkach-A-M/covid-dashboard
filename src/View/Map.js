@@ -1,3 +1,6 @@
+/* eslint-disable prefer-const */
+/* eslint-disable no-shadow */
+/* eslint-disable func-names */
 /* eslint-disable no-undef */
 /* eslint-disable space-before-blocks */
 /* eslint-disable class-methods-use-this */
@@ -26,13 +29,12 @@ class MapClass {
     const tileUrl = 'https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png?key=2R2VDK8cUykY5Z0ninZy';
     const attribution = '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>';
 
-    L.tileLayer( tileUrl , { attribution }).addTo(map);
+    L.tileLayer(tileUrl, { attribution }).addTo(map);
 
-    const legend = L.control( {position: 'bottomright'} );
-    legend.onAdd = function(map){
+    const legend = L.control({ position: 'bottomright' });
+    legend.onAdd = function (map){
       let div = L.DomUtil.create('div', 'legend');
-    }
-
+    };
   }
 
   showCountry() {

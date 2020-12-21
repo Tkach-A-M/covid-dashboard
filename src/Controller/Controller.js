@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable no-return-assign */
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-undef */
@@ -10,6 +11,7 @@ class ControllerClass {
     this.graph_controller = document.querySelector('.graph-controller');
     this.countryGraphName = document.querySelector('.statistic-all-h2');
     this.search_input = document.querySelector('.search-input');
+    this.keyboard();
     // this.cases_table_row = document.querySelector('.cases-table_row');
   }
 
@@ -44,7 +46,7 @@ class ControllerClass {
   }
 
   searchCountry() {
-    this.search_input.oninput = function(){
+    this.search_input.oninput = function () {
       const val = this.value.toLowerCase().trim();
       const elementsList = document.querySelectorAll('.cases-data_row');
       console.log(elementsList);
@@ -52,18 +54,24 @@ class ControllerClass {
         elementsList.forEach((element) => {
           if (element.innerText.toLowerCase().search(val) === -1) {
             element.classList.add('hide');
-          }
-          else {
+          } else {
             element.classList.remove('hide');
           }
         });
-      }
-      else {
+      } else {
         elementsList.forEach((element) => element.classList.remove('hide'));
       }
-    }
+    };
   }
 
+  keyboard() {
+    document.querySelector('.search-input').addEventListener('focus', () => {
+      document.querySelector('.keyboard').style.top = 'calc(100vh - 260px)';
+    });
+    document.querySelector('.search-input').addEventListener('blur', () => {
+      document.querySelector('.keyboard').style.top = 'calc(100vh)';
+    });
+  }
 }
 
 export const Controller = new ControllerClass();

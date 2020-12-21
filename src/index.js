@@ -12,6 +12,7 @@ import { Model } from './Model';
 import { View, chart } from './View';
 import { MyMap } from './View/Map';
 import { Controller } from './Controller';
+import { keyboard } from './keyboard';
 // eslint-disable-next-line camelcase
 
 // map
@@ -21,7 +22,6 @@ import { Controller } from './Controller';
 //   attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
 // }).addTo(map);
 
-
 window.onload = function () {
   Storage.init();
   View.init();
@@ -29,4 +29,6 @@ window.onload = function () {
   Model.init();
   MyMap.showAllMap();
   console.log(Country.getFlag('Yemen'));
+  // eslint-disable-next-line no-unused-expressions
+  keyboard;
 };
