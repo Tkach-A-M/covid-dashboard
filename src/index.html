@@ -11,21 +11,32 @@
 <body>
     <header class="header">
         <h1>COVID-19 Dashboard</h1>
+        <div class="burger">
+            <span class="burger-1"></span>
+            <span class="burger-2"></span>
+            <span class="burger-3"></span>
+        </div>
     </header>
     <main class="main-content">
         <div class="statistic-table">
-            <div class="total-cases">
+            <div class="total-cases" data-block="total">
+                <div class="increase-button" data-increase="total">
+                    <span class="increase-button-1 increase-button-line" data-increase="total"></span>
+                    <span class="increase-button-2 increase-button-line" data-increase="total"></span>
+                </div>
                 <h2 class="total-cases_header">Total Cases Confirmed</h2>
                 <p class="total-cases_count"></p>
             </div>
             
-            <div class="cases-table">
+            <div class="cases-table" data-block="table">
+                <div class="increase-button" data-increase="table">
+                    <span class="increase-button-1 increase-button-line" data-increase="table"></span>
+                    <span class="increase-button-2 increase-button-line" data-increase="table"></span>
+                </div>
                 <div class="search-field">
                     <input type="text" class="search-input" placeholder="Search">
-                    
                 </div>
                 <div class="cases-table_data">
-                    
                 </div>
             </div>
 
@@ -44,11 +55,20 @@
                 <div data-map="map-death-last-day">Death last day</div>
                 <div data-map="map-recovered-last-day">Recovered last day</div>
             </div>
-            <div id="map"></div>
+            <div id="map" data-block="map">
+                <div class="increase-button" data-increase="map">
+                    <span class="increase-button-1 increase-button-line" data-increase="map"></span>
+                    <span class="increase-button-2 increase-button-line" data-increase="map"></span>
+                </div>
+            </div>
         </div>
 
         <div class="info-right">
-            <div class="statistic-all">
+            <div class="statistic-all" data-block="statistic">
+                <div class="increase-button" data-increase="statistic">
+                    <span class="increase-button-1 increase-button-line" data-increase="statistic"></span>
+                    <span class="increase-button-2 increase-button-line" data-increase="statistic"></span>
+                </div>
                 <select class="select-statistic">
                     <option>All Time</option>
                     <option>Last Day</option>
@@ -56,11 +76,15 @@
                     <option>Last Day(100t.p)</option>
                 </select>
                 <h2 class="statistic-all-h2"></span></h2>
-                <h3 class="statistic-all-h3">Confirmed:<span class="statistic-confirmed"></span></h3>
-                <h3 class="statistic-all-h3">Deaths:<span class="statistic-death"></span></h3>
-                <h3 class="statistic-all-h3">Recovered:<span class="statistic-recovered"></span></h3>
+                <h3 class="statistic-all-h3">Confirmed:<div class="statistic-confirmed"></div></h3>
+                <h3 class="statistic-all-h3">Deaths:<div class="statistic-death"></div></h3>
+                <h3 class="statistic-all-h3">Recovered:<div class="statistic-recovered"></div></h3>
             </div>
-            <div class="graphs-container">
+            <div class="graphs-container" data-block="graphs">
+                <div class="increase-button" data-increase="graphs">
+                    <span class="increase-button-1 increase-button-line" data-increase="graphs"></span>
+                    <span class="increase-button-2 increase-button-line" data-increase="graphs"></span>
+                </div>
                 <div class="canvas-graphs">
                     <canvas class="statistic-graphs"></canvas>
                 </div>
@@ -74,7 +98,6 @@
         </div>
     </main>
     <div class="keyboard"></div>
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </body>

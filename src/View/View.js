@@ -45,6 +45,7 @@ class ViewClass {
     for (let i = 0; i < data.length; i++) {
       const cases_table_row = document.createElement('div');
       cases_table_row.classList.add('cases-table_row');
+      cases_table_row.setAttribute('data-country', `${data[i].Country}`);
       // const country_flag = document.createElement('div');
       // country_flag.classList.add('country-flag');
 
