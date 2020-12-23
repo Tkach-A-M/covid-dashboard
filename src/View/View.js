@@ -29,7 +29,10 @@ class ViewClass {
     });
     // Covid.getUpdateDate().then((data) => this.viewLastUpdateDate(data.Countries));
     Covid.getUpdateDate().then((data) => this.viewLastUpdateDate(data.Date));
-    Covid.getCountriesData().then((data) => this.viewTableData(data));
+    Covid.getCountriesData().then((data) => {
+      this.viewTotalConfirmedCasesData(data);
+      this.viewTotalDeathsData(data);
+    });
     Covid.getCountriesData().then((data) => console.log(data));
   }
 
@@ -43,7 +46,7 @@ class ViewClass {
     this.total_cases.innerHTML = confirmed;
   }
 
-  viewTableData(data) {
+  viewTotalConfirmedCasesData(data) {
   data.sort((a, b) => b.TotalConfirmed - a.TotalConfirmed);
     for (let i = 0; i < data.length; i++) {
       const cases_table_row = document.createElement('div');
@@ -65,13 +68,32 @@ class ViewClass {
     }
   }
 
+  viewTotalDeathsData(data) {
+  data.sort((a, b) => b.TotalDeaths - a.TotalDeaths);
+    for (let i = 0; i < data.length; i++) {
+      const cases_table_row = document.createElement('div');
+      cases_table_row.classList.add('cases-table_row');
+  
+      const country_flag = document.createElement('div');
+      country_flag.classList.add('country-flag');
+  
+      const country_flag_image = document.createElement('img');
+      country_flag_image.classList.add('country-flag-image');
+      country_flag_image.src = `https://www.countryflags.io/${data[i].CountryCode.toLowerCase()}/flat/32.png`;      
+        
+      country_flag.appendChild(country_flag_image);
+  
+      cases_table_row.innerText = `${data[i].Country} ${data[i].TotalDeaths}`;
+      cases_table_row.prepend(country_flag);
+  
+      this.cases_table_data.appendChild(cases_table_row);
+    }
+  }
+
+
   viewLastUpdateDate(date) {
     this.last_update_date.innerHTML = date.slice(0, 10).split('-').reverse().join('.');
   }
-
-  // testView(){
-  //   this.country_name.innerText = date.length;
-  // }
 }
 
 export const View = new ViewClass();

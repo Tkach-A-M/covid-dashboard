@@ -9,12 +9,17 @@ class ModelClass {
   constructor() {
     this.select_statistic = document.querySelector('.select-statistic');
     this.countryGraphName = document.querySelector('.statistic-all-h2');
+    this.select_for_table = document.querySelector('.select-for-table'); 
   }
 
   init() {
     this.countryGraphName.innerHTML = 'World';
     Covid.getSummary().then((data) => {
       View.viewStatisticAll(data.TotalConfirmed, data.TotalDeaths, data.TotalRecovered);
+    });
+    Covid.getCountriesData().then((data) => {
+      View.viewTotalConfirmedCasesData(data);
+      View.viewTotalDeathsData(data);
     });
     this.graphResults();
   }
@@ -184,6 +189,20 @@ class ModelClass {
 
   creeateGraphCountry(country) {
     this.countryGraphName.innerHTML = country;
+  }
+
+  leftTableSelectData(){
+    Covid.getCountriesData().then((data) => {
+      if(this.select_for_table.value === 'Total cases'){
+        View.viewTotalConfirmedCasesData(data);
+      }
+      else if(this.select_for_table.value === 'Total death'){
+        View.viewTotalDeathsData(data);
+      }
+      else if(this.select_for_table.value === 'Total recovered'){
+        console.log("3");
+      }
+    });
   }
 }
 // 78270
