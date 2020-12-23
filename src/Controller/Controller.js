@@ -9,12 +9,14 @@ import { Model } from '../Model';
 class ControllerClass {
   constructor() {
     this.select_statistic = document.querySelector('.select-statistic');
+    this.select_for_table = document.querySelector('.select-for-table');
     this.graph_controller = document.querySelector('.graph-controller');
     this.countryGraphName = document.querySelector('.statistic-all-h2');
     this.search_input = document.querySelector('#search-input');
     this.burgerName = document.querySelector('.burger');
     this.keyboard();
     this.tableCountryClick();
+    this.changeLeftSelection();
     // this.cases_table_row = document.querySelector('.cases-table_row');
   }
 
@@ -35,27 +37,6 @@ class ControllerClass {
   controllerGraph() {
     this.graph_controller.addEventListener('click', (elem) => {
       Model.graphController(elem);
-    });
-  }
-
-  clickLeftTable() {
-    table.addEventListener('click', (country) => {
-      const checkBar = document.querySelectorAll('[data-graph]');
-      let target = 0;
-      checkBar.forEach((e) => (e.classList.contains('graph-controller-active') ? target = e : e));
-      this.countryGraphName.innerText = country;
-      Model.statisticResult();
-      Model.graphControllerClick(target[0]);
-    });
-  }
-
-  tableCountryClick() {
-    document.querySelector('.cases-table_data').addEventListener('click', (e) => {
-      if (e.target.getAttribute('data-country')) {
-        document.querySelector('.statistic-all-h2').innerHTML = `${e.target.getAttribute('data-country')}`;
-        Model.statisticResult();
-        Model.graphControllerClick();
-      }
     });
   }
 
@@ -93,6 +74,15 @@ class ControllerClass {
         Model.statisticResult();
         Model.graphControllerClick();
       }
+    });
+  }
+
+  changeLeftSelection() {
+    this.select_for_table.addEventListener('change', () => {
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.classList.contains('graph-controller-active') ? e.classList.remove('graph-controller-active') : false));
+      Model.changeLeftSelect();
+      Model.statisticResult();
+      Model.graphResults();
     });
   }
 }

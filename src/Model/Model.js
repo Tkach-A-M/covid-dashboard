@@ -9,7 +9,7 @@ class ModelClass {
   constructor() {
     this.select_statistic = document.querySelector('.select-statistic');
     this.countryGraphName = document.querySelector('.statistic-all-h2');
-    this.select_for_table = document.querySelector('.select-for-table'); 
+    this.select_for_table = document.querySelector('.select-for-table');
   }
 
   init() {
@@ -200,19 +200,65 @@ class ModelClass {
     });
   }
 
+  changeLeftSelect() {
+    if (this.select_for_table.value === 'Total cases') {
+      document.querySelector('.statistic-all-h2').innerHTML = 'World';
+      this.select_statistic.value = 'All Time';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'confirmed' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Total death') {
+      document.querySelector('.statistic-all-h2').innerHTML = 'World';
+      this.select_statistic.value = 'All Time';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'deaths' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Total recovered') {
+      document.querySelector('.statistic-all-h2').innerHTML = 'World';
+      this.select_statistic.value = 'All Time';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'recovered' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Cases last day') {
+      this.select_statistic.value = 'Last Day';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'confirmed' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Death last day') {
+      this.select_statistic.value = 'Last Day';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'deaths' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Recovered last day') {
+      this.select_statistic.value = 'Last Day';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'recovered' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Total cases (100t. p)') {
+      document.querySelector('.statistic-all-h2').innerHTML = 'World';
+      this.select_statistic.value = 'All Time';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'confirmed' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Total death (100t. p)') {
+      document.querySelector('.statistic-all-h2').innerHTML = 'World';
+      this.select_statistic.value = 'All Time';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'deaths' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Total recovered (100t. p)') {
+      document.querySelector('.statistic-all-h2').innerHTML = 'World';
+      this.select_statistic.value = 'All Time';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'recovered' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Cases last day (100t. p)') {
+      this.select_statistic.value = 'Last Day';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'confirmed' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Death last day (100t. p)') {
+      this.select_statistic.value = 'Last Day';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'deaths' ? e.classList.add('graph-controller-active') : false));
+    } else if (this.select_for_table.value === 'Recovered last day (100t. p)') {
+      this.select_statistic.value = 'Last Day';
+      document.querySelectorAll('[data-graph]').forEach((e) => (e.getAttribute('data-praph') === 'recovered' ? e.classList.add('graph-controller-active') : false));
+    }
+  }
+
   creeateGraphCountry(country) {
     this.countryGraphName.innerHTML = country;
   }
 
-  leftTableSelectData(){
+  leftTableSelectData() {
     Covid.getCountriesData().then((data) => {
-      if(this.select_for_table.value === 'Total cases'){
+      if (this.select_for_table.value === 'Total cases') {
         View.viewTotalConfirmedCasesData(data);
       }
-      else if(this.select_for_table.value === 'Total death'){
+      else if (this.select_for_table.value === 'Total death') {
         View.viewTotalDeathsData(data);
       }
-      else if(this.select_for_table.value === 'Total recovered'){
+      else if (this.select_for_table.value === 'Total recovered') {
         console.log("3");
       }
     });
