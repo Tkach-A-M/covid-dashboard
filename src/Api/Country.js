@@ -21,19 +21,17 @@ class CountryClass {
     return await result.json();
   }
 
-  // получить флаг по названию страны
+  // get flag by name
   async getFlag(data) {
     return await this.getData('Country', data).then((data) => data[0].flag);
   }
 
-  // получить название страны
-
-  // получить насенение по названию страны
+  // get population by name
   async getPopulation(data) {
     return await this.getData('Country', data).then((data) => data[0].population);
   }
 
-  // получить список всех стран
+  // get list of all countries
   async getCountries() {
     return await this.getData('AllCountry');
   }

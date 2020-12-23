@@ -14,7 +14,6 @@ class ControllerClass {
     this.countryGraphName = document.querySelector('.statistic-all-h2');
     this.search_input = document.querySelector('#search-input');
     this.burgerName = document.querySelector('.burger');
-    this.keyboard();
     this.tableCountryClick();
     this.changeLeftSelection();
     // this.cases_table_row = document.querySelector('.cases-table_row');
@@ -41,16 +40,21 @@ class ControllerClass {
   }
 
   searchCountry() {
-    this.search_input.addEventListener('change', () => console.log('type'));
-  }
-
-  keyboard() {
-    document.querySelector('.search-input').addEventListener('focus', () => {
-      document.querySelector('.keyboard').style.top = 'calc(100vh - 260px)';
-    });
-    document.querySelector('.search-input').addEventListener('blur', () => {
-      document.querySelector('.keyboard').style.top = 'calc(100vh)';
-    });
+    this.search_input.oninput = function () {
+      const val = this.value.toLowerCase().trim();
+      const elementsList = document.querySelectorAll('.cases-table_row');
+      if (val !== '') {
+        elementsList.forEach((element) => {
+          if (element.innerText.toLowerCase().search(val) === -1) {
+            element.classList.add('hide');
+          } else {
+            element.classList.remove('hide');
+          }
+        });
+      } else {
+        elementsList.forEach((element) => element.classList.remove('hide'));
+      }
+    };
   }
 
   burger() {
