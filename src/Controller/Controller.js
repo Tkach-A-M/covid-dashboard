@@ -60,24 +60,7 @@ class ControllerClass {
   }
 
   searchCountry() {
-    // this.search_input.onchange = function () {
     this.search_input.addEventListener('change', () => console.log('type'));
-    // console.log('type');
-    // const val = this.value.toLowerCase().trim();
-    // const elementsList = document.querySelectorAll('.cases-data_row');
-    // console.log(elementsList);
-    // if (val !== '') {
-    //   elementsList.forEach((element) => {
-    //     if (element.innerText.toLowerCase().search(val) === -1) {
-    //       element.classList.add('hide');
-    //     } else {
-    //       element.classList.remove('hide');
-    //     }
-    //   });
-    // } else {
-    //   elementsList.forEach((element) => element.classList.remove('hide'));
-    // }
-    // };
   }
 
   keyboard() {

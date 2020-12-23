@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-plusplus */
 /* eslint-disable camelcase */
@@ -44,7 +45,7 @@ class ViewClass {
   }
 
   viewTableData(data) {
-  data.sort((a, b) => b.TotalConfirmed - a.TotalConfirmed);
+    data.sort((a, b) => b.TotalConfirmed - a.TotalConfirmed);
     for (let i = 0; i < data.length; i++) {
       const cases_table_row = document.createElement('div');
       cases_table_row.classList.add('cases-table_row');
@@ -55,8 +56,7 @@ class ViewClass {
 
       const country_flag_image = document.createElement('img');
       country_flag_image.classList.add('country-flag-image');
-      country_flag_image.src = `https://www.countryflags.io/${data[i].CountryCode.toLowerCase()}/flat/32.png`;      
-      
+      country_flag_image.src = `https://www.countryflags.io/${data[i].CountryCode.toLowerCase()}/flat/32.png`;
       country_flag.appendChild(country_flag_image);
 
       cases_table_row.innerText = `${data[i].Country} ${data[i].TotalConfirmed}`;
