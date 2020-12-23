@@ -1,3 +1,4 @@
+/* eslint-disable no-else-return */
 /* eslint-disable prefer-const */
 /* eslint-disable no-shadow */
 /* eslint-disable func-names */
@@ -31,10 +32,68 @@ class MapClass {
 
     L.tileLayer(tileUrl, { attribution }).addTo(map);
 
-    const legend = L.control({ position: 'bottomright' });
-    legend.onAdd = function (map){
+    function countriesStyle(feature){
+      return{
+        fillColor: getCountryColor(feature.properties.pop_est),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: 3,
+        fillOpacity: 0.7,
+      };
+    }
+
+    function getCountryColor(popEst){
+      if (popEst > 100000000){
+        return 'red';
+      } else if (popEst > 50000000) {
+        return 'blue';
+      } else {
+        return 'green';
+      }
+    }
+
+    const countryLayers = L.geoJson(
+      countries,
+      { style: countriesStyle }
+    ).addTo(map);
+
+    const legend = L.control({position: 'bottomright'});
+    legend.onAdd = function(map){
       let div = L.DomUtil.create('div', 'legend');
-    };
+      const lables = [
+        'Population > 100000000',
+        'Population > 50000000',
+        'Population < 50000000'
+      ]
+      const grades = [100000001, 50000001, 50000000];
+      div.innerHTML = '<div><b>Legend</b></div>';
+      for (let i = 0; i < grades.length; i++){
+        div.innerHTML += `<i style='background:${getCountryColor(grades[i])}'>&nbsp;&nbsp;</i>
+        &nbsp;&nbsp;${lables[i]}</br>`;
+      }
+    return div;
+    }
+    legend.addTo(map);
+
+    function highlight(e){
+      let layer = e.target;
+
+      layer.setStyle({
+        width: 5,
+        color: black,
+        fillOpacity: 0.8
+      });
+
+      if(!L.Browser.ie && !L.Browser.opera && !L.browser.edge){
+        layer.bringToFront();
+      }
+    }
+
+    function resHighLight(e){
+      geojson.resetStyle(e.target);
+    }
+    
   }
 
   showCountry() {

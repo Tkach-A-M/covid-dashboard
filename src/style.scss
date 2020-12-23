@@ -7,6 +7,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
+    position: relative;
 }
 .burger {
   width:35px;
@@ -26,40 +27,39 @@ body{
      background-color:black;
    }
 }
-
 .hide{
     display: none;
 }
 
 .header{
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-content{
     display: flex;
-    width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+
 }
-.statistic-all,
+.statistic-all {
+  height: 420px;
+}
 .statistic-table, 
 .statistic-map, 
 .statistic-graphs{
     border: 1px solid grey;
-    height: 780px;
+    height: 810px;
 }
 
 .statistic-table{
-    width: 280px;
+    width: 20%;
     padding: 5px;
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    position: relative;
 }
 
 .total-cases,
@@ -68,7 +68,6 @@ body{
     border: 1px solid grey;
     border-radius: 5px;
     background-color: darkgray;
-    position: relative;
 }
 
 .total-cases_header{
@@ -83,7 +82,7 @@ body{
 }
 
 .cases-table{
-    height: 585px;
+    height: 610px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
@@ -92,18 +91,13 @@ body{
 .cases-table_data{
     margin-top: 5px;
     border-bottom: 5px;
-    height: 540px;
+    height: 565px;
     overflow-y: scroll;
 }
 
 .country-name{
     padding-left: 10px;
     padding-right: 10px;
-}
-
-.country-name,
-.country-cases{
-    font-size: 16px;
 }
 
 .search-field{
@@ -136,20 +130,65 @@ body{
     border-bottom: 4px solid #E6AA3A;
 }
 
-.country-name{
-    padding-left: 7px;
-    padding-right: 7px;
+.for-table-select{
+  width: 100%;
+
+  .select-for-table{
+    width: 100%;
+  }
 }
 
+.for-map-select{
+  display: flex;
+  justify-content: center;
+
+  .select-for-map{
+    margin-top: 10px;
+    height: 30px;
+  }
+}
+// .table-tabs{
+//   width: 100%;
+//   height: 60px;
+//   display: flex;
+
+//   div {
+//       width: 100%;
+//       border: 1px solid grey;
+//       text-align: center;
+//       user-select: none;   
+//       -webkit-user-select: none;
+//       cursor: pointer;
+//   }
+
+//   div:first-child{
+//       border-bottom-left-radius: 3px;
+//   }
+
+//   div:last-child{
+//       border-bottom-right-radius: 2px;
+//   }
+
+//   &-active {
+//       background-color: antiquewhite;
+//   }
+// }
+
+.country-flag{
+  margin-right: 5px;
+}
 
 .last-update{
     padding: 10px;
     text-align: center;
+    position: absolute;
+    bottom: 5px;
+    width: 97%;
 }
 
 
 .statistic-map{
-    width: 1000px;
+    width: 50%;
     position: relative;
 }
 
@@ -160,57 +199,29 @@ body{
     right: 0;
     bottom: 0;
     left: 0;
-}
 
-.map-tabs{
-    width: 100%;
-    height: 20px;
-    display: flex;
-
-    div {
-        width: 100%;
-        border: 1px solid grey;
-        text-align: center;
-        user-select: none;   
-        -webkit-user-select: none;
-        cursor: pointer;
-    }
-
-    div:first-child{
-        border-top-left-radius: 3px;
-    }
-
-    div:last-child{
-        border-top-right-radius: 2px;
-    }
-
-    &-active {
-        background-color: antiquewhite;
+    .legend{
+      background-color: white;
+      border: 1px solid black;      
+      padding: 5px;
     }
 }
 
 .info-right {
-  width: 300px;
-  height:570px;
-  background-color: #fff;
-  z-index: 1;
   transition: 1s;
+  width: 300px;
+  height:470px;
+  background-color: #fff;
 }
 .statistic-graphs{
     width: 300px;
     height:200px;
-    background-color: #fff;
 }
 
-.canvas-graphs {
-  width:100%;
-  height: 0.5;
-}
+
 .statistic-all {
     width: 300px;
-    height:350px;
-    position: relative;
-    background-color: #fff;
+    height:320px;
 
     .select-statistic {
      width: 100%;
@@ -231,6 +242,10 @@ body{
         margin-top:20px;
         font-size:25px;
         color: #cc2c10;
+
+        span {
+            color: black;
+        }
     }
 
 }
@@ -253,50 +268,44 @@ body{
         background-color: antiquewhite;
     }
 }
-.graphs-container {
-  position: relative;
-  background-color: #fff;
+
+.footer{
+  width: 100%;
+  height: 72px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
 }
-.statistic-confirmed,
-.statistic-death,
-.statistic-recovered {
-  color: black;
-}
-.increase-button {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: black;
-  position: absolute;
-  left: calc(100% - 20px);
+
+.gh-block{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  z-index: 1401;
-  cursor: pointer;
 
-  &-line {
-    background-color: #fff;
-    width: 16px;
-    height:2px;
-  }
-
-  &-1 {
-    transform: rotate(45deg);
-    margin-top: 9px;
-  }
-  &-2 {
-    transform: rotate(-45deg);
-    margin-top:-1px;
+  a{
+    text-decoration: none;
+    font-weight: 700;
+    color: #000;
   }
 }
-.increase {
-  width:90vw;
-  height:90vh;
-  position: absolute;
-  top: 5vh;
-  left: 5vh;
-  text-align: center;
+
+.gh-block,
+.year-block,
+.rs-block{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.year-block{
+  font-size: 2rem;
+  font-weight: 900;
+
+  a{
+    text-decoration: none;
+    color: #000;
+  }
 }
 
 @media screen and (max-width: 1410px){
@@ -306,6 +315,7 @@ body{
   }
   .statistic-table {
     width:200px;
+    height: 825px;
   }
   .statistic-all,
   .info-right {
@@ -321,6 +331,8 @@ body{
 @media screen and (max-width: 720px) {
   .main-content {
     width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
   h1 {
     font-size: 1.2em;
@@ -336,22 +348,36 @@ body{
     position:absolute;
     left:100vw;
   }
+  .last-update {
+    display: none;
+  }
   .burger {
     display: block;
+  }
+  .statistic-table {
+    height:840px;
+  }
+  .total-cases_count {
+    font-size:20px;
+  }
+  .cases-table {
+    font-size: 12px;
   }
 }
 @media screen and (max-width: 1115px){
 .last-update {
     font-size: 10px;
   }
+  .statistic-table {
+    height:790px;
+  }
 }
 .burger-active-right {
   left: calc(100vw - 260px) !important;
 }
+
 // keyboard
-body {
-  position: relative;
-}
+
 .keyboard {
     width:1275px;
     height: 260px;

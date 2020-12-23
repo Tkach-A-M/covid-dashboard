@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="/src/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/src/Storage/countries.geojson"></script>
     <title>COVID-19 Dashboard</title>
 </head>
 <body>
@@ -19,27 +20,45 @@
     </header>
     <main class="main-content">
         <div class="statistic-table">
-            <div class="total-cases" data-block="total">
-                <div class="increase-button" data-increase="total">
-                    <span class="increase-button-1 increase-button-line" data-increase="total"></span>
-                    <span class="increase-button-2 increase-button-line" data-increase="total"></span>
-                </div>
+            <div class="total-cases">
                 <h2 class="total-cases_header">Total Cases Confirmed</h2>
                 <p class="total-cases_count"></p>
             </div>
             
-            <div class="cases-table" data-block="table">
-                <div class="increase-button" data-increase="table">
-                    <span class="increase-button-1 increase-button-line" data-increase="table"></span>
-                    <span class="increase-button-2 increase-button-line" data-increase="table"></span>
-                </div>
+            <div class="cases-table">
                 <div class="search-field">
-                    <input type="text" class="search-input" placeholder="Search">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search">
+                    
                 </div>
                 <div class="cases-table_data">
+                    
                 </div>
+                <!-- <div class="table-tabs">
+                    <div data-table="table-cases-total">Total cases</div>
+                    <div data-table="table-death-total">Total death</div>
+                    <div data-table="table-recovered-total">Total recovered</div>
+                    <div data-table="table-cases-last-day">Cases last day</div>
+                    <div data-table="table-death-last-day">Death last day</div>
+                    <div data-table="table-recovered-last-day">Recovered last day</div>
+                </div> -->
+                
             </div>
-
+            <div class="for-table-select">
+                <select id="select-for-table" class="select-for-table">
+                    <option>Total cases</option>
+                    <option>Total death</option>
+                    <option>Total recovered</option>
+                    <option>Cases last day</option>
+                    <option>Death last day</option>
+                    <option>Recovered last day</option>
+                    <option>Total cases (100t. p)</option>
+                    <option>Total death (100t. p)</option>
+                    <option>Total recovered (100t. p)</option>
+                    <option>Cases last day (100t. p)</option>
+                    <option>Death last day (100t. p)</option>
+                    <option>Recovered last day (100t. p)</option> 
+                </select>
+            </div>
             <div class="last-update">
                 <p class="last-update-format">Last Updated at (D/M/YYYY)</p>
                 <p class="last-update-date"></p>
@@ -47,28 +66,27 @@
 
         </div>
         <div class="statistic-map">
-            <div class="map-tabs">
-                <div data-map="map-cases-total">Total cases</div>
-                <div data-map="map-death-total">Total death</div>
-                <div data-map="map-recovered-total">Total recovered</div>
-                <div data-map="map-cases-last-day">Cases last day</div>
-                <div data-map="map-death-last-day">Death last day</div>
-                <div data-map="map-recovered-last-day">Recovered last day</div>
+            <div class="for-map-select">
+                <select id="select-for-map" class="select-for-map">
+                    <option>Total cases</option>
+                    <option>Total death</option>
+                    <option>Total recovered</option>
+                    <option>Cases last day</option>
+                    <option>Death last day</option>
+                    <option>Recovered last day</option>
+                    <option>Total cases (100t. p)</option>
+                    <option>Total death (100t. p)</option>
+                    <option>Total recovered (100t. p)</option>
+                    <option>Cases last day (100t. p)</option>
+                    <option>Death last day (100t. p)</option>
+                    <option>Recovered last day (100t. p)</option> 
+                </select>
             </div>
-            <div id="map" data-block="map">
-                <div class="increase-button" data-increase="map">
-                    <span class="increase-button-1 increase-button-line" data-increase="map"></span>
-                    <span class="increase-button-2 increase-button-line" data-increase="map"></span>
-                </div>
-            </div>
+            <div id="map"></div>
         </div>
 
         <div class="info-right">
-            <div class="statistic-all" data-block="statistic">
-                <div class="increase-button" data-increase="statistic">
-                    <span class="increase-button-1 increase-button-line" data-increase="statistic"></span>
-                    <span class="increase-button-2 increase-button-line" data-increase="statistic"></span>
-                </div>
+            <div class="statistic-all">
                 <select class="select-statistic">
                     <option>All Time</option>
                     <option>Last Day</option>
@@ -76,15 +94,11 @@
                     <option>Last Day(100t.p)</option>
                 </select>
                 <h2 class="statistic-all-h2"></span></h2>
-                <h3 class="statistic-all-h3">Confirmed:<div class="statistic-confirmed"></div></h3>
-                <h3 class="statistic-all-h3">Deaths:<div class="statistic-death"></div></h3>
-                <h3 class="statistic-all-h3">Recovered:<div class="statistic-recovered"></div></h3>
+                <h3 class="statistic-all-h3">Confirmed:<span class="statistic-confirmed"></span></h3>
+                <h3 class="statistic-all-h3">Deaths:<span class="statistic-death"></span></h3>
+                <h3 class="statistic-all-h3">Recovered:<span class="statistic-recovered"></span></h3>
             </div>
-            <div class="graphs-container" data-block="graphs">
-                <div class="increase-button" data-increase="graphs">
-                    <span class="increase-button-1 increase-button-line" data-increase="graphs"></span>
-                    <span class="increase-button-2 increase-button-line" data-increase="graphs"></span>
-                </div>
+            <div class="graphs-container">
                 <div class="canvas-graphs">
                     <canvas class="statistic-graphs"></canvas>
                 </div>
@@ -97,7 +111,28 @@
             
         </div>
     </main>
+    <footer class="footer">
+        <div class="gh-block">
+            <a href="https://github.com/Tkach-A-M" target="_blank">
+                Tkach-A-M
+            </a>
+            <a href="https://github.com/kazachenka" target="_blank">
+                Kazachenka
+            </a>
+        </div>
+        <div class="rs-block">
+            <a href="https://rs.school/js/" target="_blank">
+                <img src="/src/images/rs_school_js.svg" alt="RSS_JS" height="64px">
+            </a>
+        </div>
+        <div class="year-block">
+            <a href="https://ru.wikipedia.org/wiki/2020_%D0%B3%D0%BE%D0%B4" rel="nofollow" target="_blank">
+                2020
+            </a>
+        </div>
+    </footer>
     <div class="keyboard"></div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </body>
