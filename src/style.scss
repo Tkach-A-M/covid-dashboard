@@ -29,7 +29,7 @@ body{
 .statistic-map, 
 .statistic-graphs{
     border: 1px solid grey;
-    height: 780px;
+    height: 810px;
 }
 
 .statistic-table{
@@ -60,7 +60,7 @@ body{
 }
 
 .cases-table{
-    height: 544px;
+    height: 610px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 5px;
@@ -69,18 +69,13 @@ body{
 .cases-table_data{
     margin-top: 5px;
     border-bottom: 5px;
-    height: 500px;
+    height: 565px;
     overflow-y: scroll;
 }
 
 .country-name{
     padding-left: 10px;
     padding-right: 10px;
-}
-
-.country-name,
-.country-cases{
-    font-size: 16px;
 }
 
 .search-field{
@@ -113,36 +108,52 @@ body{
     border-bottom: 4px solid #E6AA3A;
 }
 
-.country-name{
-    padding-left: 7px;
-    padding-right: 7px;
+.for-table-select{
+  width: 100%;
+
+  .select-for-table{
+    width: 100%;
+  }
 }
 
-.table-tabs{
-  width: 100%;
-  height: 60px;
+.for-map-select{
   display: flex;
+  justify-content: center;
 
-  div {
-      width: 100%;
-      border: 1px solid grey;
-      text-align: center;
-      user-select: none;   
-      -webkit-user-select: none;
-      cursor: pointer;
+  .select-for-map{
+    margin-top: 10px;
+    height: 30px;
   }
+}
+// .table-tabs{
+//   width: 100%;
+//   height: 60px;
+//   display: flex;
 
-  div:first-child{
-      border-bottom-left-radius: 3px;
-  }
+//   div {
+//       width: 100%;
+//       border: 1px solid grey;
+//       text-align: center;
+//       user-select: none;   
+//       -webkit-user-select: none;
+//       cursor: pointer;
+//   }
 
-  div:last-child{
-      border-bottom-right-radius: 2px;
-  }
+//   div:first-child{
+//       border-bottom-left-radius: 3px;
+//   }
 
-  &-active {
-      background-color: antiquewhite;
-  }
+//   div:last-child{
+//       border-bottom-right-radius: 2px;
+//   }
+
+//   &-active {
+//       background-color: antiquewhite;
+//   }
+// }
+
+.country-flag{
+  margin-right: 5px;
 }
 
 .last-update{
@@ -166,32 +177,11 @@ body{
     right: 0;
     bottom: 0;
     left: 0;
-}
 
-.map-tabs{
-    width: 100%;
-    height: 20px;
-    display: flex;
-
-    div {
-        width: 100%;
-        border: 1px solid grey;
-        text-align: center;
-        user-select: none;   
-        -webkit-user-select: none;
-        cursor: pointer;
-    }
-
-    div:first-child{
-        border-top-left-radius: 3px;
-    }
-
-    div:last-child{
-        border-top-right-radius: 2px;
-    }
-
-    &-active {
-        background-color: antiquewhite;
+    .legend{
+      background-color: white;
+      border: 1px solid black;      
+      padding: 5px;
     }
 }
 
@@ -258,7 +248,7 @@ body{
 .footer{
   width: 100%;
   height: 72px;
-  // background-color: white;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -287,6 +277,11 @@ body{
 .year-block{
   font-size: 2rem;
   font-weight: 900;
+
+  a{
+    text-decoration: none;
+    color: #000;
+  }
 }
 
 

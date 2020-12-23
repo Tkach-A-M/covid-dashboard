@@ -3,10 +3,12 @@
 /* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable max-len */
+import { doc } from 'prettier';
 import { Covid, Country } from '../Api';
 
 class ViewClass {
   constructor() {
+    this.header = document.querySelector('.header');
     this.table = document.querySelector('.statistic-table');
     this.statistic_confirmed = document.querySelector('.statistic-confirmed');
     this.statistic_death = document.querySelector('.statistic-death');
@@ -17,7 +19,7 @@ class ViewClass {
     // this.cases_table_row = document.querySelector('.cases-table_row');
     // this.cases_table_list = document.querySelector('.table-cases-list');
     // this.country_name = document.querySelector('.country-name');
-    this.country_flag_image = document.querySelector('.country-flag-image');
+    // this.country_flag_image = document.querySelector('.country-flag-image');
     // this.country_cases = document.querySelector('.country-cases');
   }
 
@@ -28,6 +30,7 @@ class ViewClass {
     // Covid.getUpdateDate().then((data) => this.viewLastUpdateDate(data.Countries));
     Covid.getUpdateDate().then((data) => this.viewLastUpdateDate(data.Date));
     Covid.getCountriesData().then((data) => this.viewTableData(data));
+    Covid.getCountriesData().then((data) => console.log(data));
   }
 
   viewStatisticAll(confirmed, death, recovered) {
@@ -41,31 +44,22 @@ class ViewClass {
   }
 
   viewTableData(data) {
-  // data.TotalConfirmed.sort((a, b) => a - b)
+  data.sort((a, b) => b.TotalConfirmed - a.TotalConfirmed);
     for (let i = 0; i < data.length; i++) {
       const cases_table_row = document.createElement('div');
       cases_table_row.classList.add('cases-table_row');
-      // const country_flag = document.createElement('div');
-      // country_flag.classList.add('country-flag');
 
-      // const country_flag_image = document.createElement('img');
-      // country_flag_image.classList.add('country-flag-image');
+      const country_flag = document.createElement('div');
+      country_flag.classList.add('country-flag');
 
-      // const country_name = document.createElement('div');
-      // country_name.classList.add('country-name');
-      // country_name.innerText = data[i].Country;
-
-      // const country_cases = document.createElement('div');
-      // country_cases.classList.add('country-cases');
-      // country_cases.innerText = data[i].TotalConfirmed;
-
-      // country_flag.appendChild(country_flag_image);
-
-      // cases_table_row.appendChild(country_flag);
-      // cases_table_row.appendChild(country_name);
-      // cases_table_row.appendChild(country_cases);
+      const country_flag_image = document.createElement('img');
+      country_flag_image.classList.add('country-flag-image');
+      country_flag_image.src = `https://www.countryflags.io/${data[i].CountryCode.toLowerCase()}/flat/32.png`;      
+      
+      country_flag.appendChild(country_flag_image);
 
       cases_table_row.innerText = `${data[i].Country} ${data[i].TotalConfirmed}`;
+      cases_table_row.prepend(country_flag);
 
       this.cases_table_data.appendChild(cases_table_row);
     }

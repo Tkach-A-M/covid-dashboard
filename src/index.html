@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="/src/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/src/Storage/countries.geojson"></script>
     <title>COVID-19 Dashboard</title>
 </head>
 <body>
@@ -21,22 +22,38 @@
             
             <div class="cases-table">
                 <div class="search-field">
-                    <input type="text" class="search-input" placeholder="Search">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search">
                     
                 </div>
                 <div class="cases-table_data">
                     
                 </div>
-                <div class="table-tabs">
+                <!-- <div class="table-tabs">
                     <div data-table="table-cases-total">Total cases</div>
                     <div data-table="table-death-total">Total death</div>
                     <div data-table="table-recovered-total">Total recovered</div>
                     <div data-table="table-cases-last-day">Cases last day</div>
                     <div data-table="table-death-last-day">Death last day</div>
                     <div data-table="table-recovered-last-day">Recovered last day</div>
-                </div>
+                </div> -->
+                
             </div>
-
+            <div class="for-table-select">
+                <select id="select-for-table" class="select-for-table">
+                    <option>Total cases</option>
+                    <option>Total death</option>
+                    <option>Total recovered</option>
+                    <option>Cases last day</option>
+                    <option>Death last day</option>
+                    <option>Recovered last day</option>
+                    <option>Total cases (100t. p)</option>
+                    <option>Total death (100t. p)</option>
+                    <option>Total recovered (100t. p)</option>
+                    <option>Cases last day (100t. p)</option>
+                    <option>Death last day (100t. p)</option>
+                    <option>Recovered last day (100t. p)</option> 
+                </select>
+            </div>
             <div class="last-update">
                 <p class="last-update-format">Last Updated at (D/M/YYYY)</p>
                 <p class="last-update-date"></p>
@@ -44,13 +61,21 @@
 
         </div>
         <div class="statistic-map">
-            <div class="map-tabs">
-                <div data-map="map-cases-total">Total cases</div>
-                <div data-map="map-death-total">Total death</div>
-                <div data-map="map-recovered-total">Total recovered</div>
-                <div data-map="map-cases-last-day">Cases last day</div>
-                <div data-map="map-death-last-day">Death last day</div>
-                <div data-map="map-recovered-last-day">Recovered last day</div>
+            <div class="for-map-select">
+                <select id="select-for-map" class="select-for-map">
+                    <option>Total cases</option>
+                    <option>Total death</option>
+                    <option>Total recovered</option>
+                    <option>Cases last day</option>
+                    <option>Death last day</option>
+                    <option>Recovered last day</option>
+                    <option>Total cases (100t. p)</option>
+                    <option>Total death (100t. p)</option>
+                    <option>Total recovered (100t. p)</option>
+                    <option>Cases last day (100t. p)</option>
+                    <option>Death last day (100t. p)</option>
+                    <option>Recovered last day (100t. p)</option> 
+                </select>
             </div>
             <div id="map"></div>
         </div>
@@ -96,7 +121,9 @@
             </a>
         </div>
         <div class="year-block">
-            <p>2020</p>
+            <a href="https://ru.wikipedia.org/wiki/2020_%D0%B3%D0%BE%D0%B4" rel="nofollow" target="_blank">
+                2020
+            </a>
         </div>
     </footer>
     <div class="keyboard"></div>

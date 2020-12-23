@@ -28,7 +28,8 @@ window.onload = function () {
   Controller.init();
   Model.init();
   MyMap.showAllMap();
-  console.log(Country.getFlag('Yemen'));
+  Country.getFlag('Yemen').then(data => console.log(data));
+  console.log("https://www.countryflags.io/bi/flat/32.png");
   // eslint-disable-next-line no-unused-expressions
   keyboard;
 };
