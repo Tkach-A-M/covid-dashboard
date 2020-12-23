@@ -27,7 +27,11 @@ export function chart(data, arr, lab, target) {
     },
 
     // Configuration options go here
-    options: {},
+    options: {
+      legend: {
+        display: false,
+      },
+    },
   });
 }
 Chart.defaults.global.defaultFontSize = 10;

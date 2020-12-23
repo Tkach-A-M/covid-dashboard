@@ -9,22 +9,44 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
 }
+.burger {
+  width:35px;
+  height:27px;
+  margin-left:20px;
+  cursor: pointer;
+  transition: 1s;
+  display: none;
 
+  &-2 {
+    margin-top: 6px;
+    margin-bottom:6px;
+  }
+   span {
+     width:100%;
+     height:5px;
+     background-color:black;
+   }
+}
 .hide{
     display: none;
 }
 
 .header{
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 5px;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .main-content{
     display: flex;
 
 }
-.statistic-all,
+.statistic-all {
+  height: 420px;
+}
 .statistic-table, 
 .statistic-map, 
 .statistic-graphs{
@@ -160,8 +182,10 @@ body{
 }
 
 .info-right {
+  transition: 1s;
   width: 300px;
   height:470px;
+  background-color: #fff;
 }
 .statistic-graphs{
     width: 300px;
@@ -258,6 +282,73 @@ body{
   }
 }
 
+@media screen and (max-width: 1410px){
+  .main-content {
+    max-width: 1200px;
+    width:100%;
+  }
+  .statistic-table {
+    width:200px;
+    height: 825px;
+  }
+  .statistic-all,
+  .info-right {
+    width:250px;
+  }
+  .total-cases_count {
+    font-size:20px;
+  }
+}
+.burger-active-right {
+  left: calc(100vw - 260px) !important;
+}
+@media screen and (max-width: 720px) {
+  .main-content {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    font-size: 1.2em;
+  }
+  .statistic-map,
+  #map {
+    width:360px;
+  }
+  .statistic-table {
+    width:140px;
+  }
+  .info-right {
+    position:absolute;
+    left:100vw;
+  }
+  .last-update {
+    display: none;
+  }
+  .burger {
+    display: block;
+  }
+  .statistic-table {
+    height:840px;
+  }
+  .total-cases_count {
+    font-size:20px;
+  }
+  .cases-table {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 1115px){
+.last-update {
+    font-size: 10px;
+  }
+  .statistic-table {
+    height:790px;
+  }
+}
+.burger-active-right {
+  left: calc(100vw - 260px) !important;
+}
 
 // keyboard
 

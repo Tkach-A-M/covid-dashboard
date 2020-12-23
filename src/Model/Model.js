@@ -55,17 +55,30 @@ class ModelClass {
   }
 
   graphResults() {
-    Covid.getStatistic().then((data) => {
-      if (this.select_statistic.value === 'All Time') {
-        chart(data, data.map((e) => e.TotalConfirmed).sort((a, b) => a - b), 'Confirmed', this.countryGraphName.textContent);
-      } else if (this.select_statistic.value === 'Last Day') {
-        chart(data, data.map((e) => e.NewConfirmed), 'Confirmed');
-      } else if (this.select_statistic.value === 'All Time(100t.p)') {
-        chart(data, data.map((e) => (e.TotalConfirmed / 78270).toFixed(5)).sort((a, b) => a - b), 'Confirmed', this.countryGraphName.textContent);
-      } else if (this.select_statistic.value === 'Last Day(100t.p)') {
-        chart(data, data.map((e) => (e.TotalConfirmed / 78270).toFixed(5)), 'Confirmed', this.countryGraphName.textContent);
-      }
-    });
+    if (this.countryGraphName.innerText === 'World') {
+      Covid.getStatistic().then((data) => {
+        if (this.select_statistic.value === 'All Time') {
+          chart(data, data.map((e) => e.TotalConfirmed).sort((a, b) => a - b), 'Confirmed', this.countryGraphName.textContent);
+        } else if (this.select_statistic.value === 'Last Day') {
+          chart(data, data.map((e) => e.NewConfirmed), 'Confirmed');
+        } else if (this.select_statistic.value === 'All Time(100t.p)') {
+          chart(data, data.map((e) => (e.TotalConfirmed / 78270).toFixed(5)).sort((a, b) => a - b), 'Confirmed', this.countryGraphName.textContent);
+        } else if (this.select_statistic.value === 'Last Day(100t.p)') {
+          chart(data, data.map((e) => (e.TotalConfirmed / 78270).toFixed(5)), 'Confirmed', this.countryGraphName.textContent);
+        }
+      });
+    } else {
+      Covid.getInfoCountry(this.countryGraphName.innerText).then((data) => {
+        const target = document.querySelector('.graph-controller-active');
+        if (target.getAttribute('data-graph') === 'confirmed') {
+          this.graphConfirmed(data, this.countryGraphName.innerText);
+        } else if (target.getAttribute('data-graph') === 'deaths') {
+          this.graphDeaths(data, this.countryGraphName.innerText);
+        } else if (target.getAttribute('data-graph') === 'recovered') {
+          this.graphRecovered(data, this.countryGraphName.innerText);
+        }
+      });
+    }
   }
 
   graphControllerClick() {
