@@ -17,18 +17,12 @@ class ViewClass {
     this.total_cases = document.querySelector('.total-cases_count');
     this.last_update_date = document.querySelector('.last-update-date');
     this.cases_table_data = document.querySelector('.cases-table_data');
-    // this.cases_table_row = document.querySelector('.cases-table_row');
-    // this.cases_table_list = document.querySelector('.table-cases-list');
-    // this.country_name = document.querySelector('.country-name');
-    // this.country_flag_image = document.querySelector('.country-flag-image');
-    // this.country_cases = document.querySelector('.country-cases');
   }
 
   init() {
     Covid.getSummary().then((data) => {
       this.viewTotalCases(data.TotalConfirmed);
     });
-    // Covid.getUpdateDate().then((data) => this.viewLastUpdateDate(data.Countries));
     Covid.getUpdateDate().then((data) => this.viewLastUpdateDate(data.Date));
     Covid.getCountriesData().then((data) => {
       this.viewTotalConfirmedCasesData(data);

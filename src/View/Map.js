@@ -36,23 +36,24 @@ class MapClass {
 
     function countriesStyle(feature){
       return {
-        fillColor: getCountryColor(feature.properties.pop_est),
+        fillColor: 'transparent',
         weight: 2,
         opacity: 1,
-        color: 'white',
-        dashArray: 3,
+        color: 'red',
         fillOpacity: 0.7,
       };
     }
 
     function getCountryColor(popEst){
-      if (popEst > 100000000){
-        return 'red';
-      } else if (popEst > 50000000){
-        return 'blue';
-      } else {
-        return 'green';
-      }
+      return popEst > 1000001 ? '#800027' : popEst > 500001 ? '#BD0027' : popEst > 400001 ? '#E31A1D' :
+      popEst > 250001 ? '#FC4E2B' :
+      popEst > 100001 ? '#FD8D3D' :
+      popEst > 50001 ? '#FEB24D' :
+      popEst > 20001 ? '#FED977' :
+      popEst > 10001 ? '#FFEDA1' :
+      popEst > 3001 ? '#FFC54E' :
+      popEst > 1001 ? '#FFE7B5' :
+      '#FAE9D8';
     }
 
     const countryLayers = L.geoJson(
@@ -64,11 +65,18 @@ class MapClass {
     legend.onAdd = function (map){
       let div = L.DomUtil.create('div', 'legend');
       const lables = [
-        'Population > 100000000',
-        'Population > 50000000',
-        'Population < 50000000',
+        '1000001 – 5000000',
+        '500001 – 1000000',
+        '400001 – 500000',
+        '250001 – 400001',
+        '100001 – 250000',
+        '50001 – 100000',
+        '20001 – 50000',
+        '3001 – 20000',
+        '1001 – 3000',
+        '1 – 1000'
       ];
-      const grades = [100000001, 50000001, 50000000];
+      const grades = [1000002, 500002, 400002, 250002, 100002, 50002, 20002, 3002, 1002, 2];
       div.innerHTML = '<div><b>Legend</b></div>';
       for (let i = 0; i < grades.length; i++){
         div.innerHTML += `<i style='background:${getCountryColor(grades[i])}'>&nbsp;&nbsp;</i>
@@ -77,24 +85,6 @@ class MapClass {
       return div;
     };
     legend.addTo(map);
-
-    function highlight(e){
-      let layer = e.target;
-
-      layer.setStyle({
-        width: 5,
-        color: black,
-        fillOpacity: 0.8,
-      });
-
-      if (!L.Browser.ie && !L.Browser.opera && !L.browser.edge){
-        layer.bringToFront();
-      }
-    }
-
-    function resHighLight(e){
-      geojson.resetStyle(e.target);
-    }
   }
 
   showCountry() {
